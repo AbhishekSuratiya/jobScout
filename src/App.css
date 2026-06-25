@@ -1,0 +1,443 @@
+/* Override the starter template's centered, fixed-width root. */
+#root {
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: left;
+  padding: 0 20px 64px;
+  border-inline: none;
+}
+
+.app-header {
+  padding: 28px 0 8px;
+}
+.app-header h1 {
+  font-size: 40px;
+  margin: 0 0 6px;
+  letter-spacing: -1px;
+}
+.app-header p {
+  color: var(--text);
+  font-size: 16px;
+}
+
+/* ---- Controls panel ---- */
+.controls {
+  background: var(--social-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  margin: 20px 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ---- Source picker (horizontal row) ---- */
+.source-picker-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.source-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.source-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--text-h);
+  font: inherit;
+  font-size: 15px;
+  cursor: pointer;
+  transition: border-color 0.12s, background 0.12s;
+}
+.source-card:hover {
+  border-color: var(--accent-border);
+}
+.source-card.on {
+  border-color: var(--accent);
+  background: var(--accent-bg);
+}
+.source-card.on .source-card-label {
+  color: var(--accent);
+}
+.source-card-label {
+  font-weight: 500;
+}
+.pill {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 1px 7px;
+  border-radius: 20px;
+}
+.pill.stable {
+  background: rgba(34, 197, 94, 0.15);
+  color: #16a34a;
+}
+.pill.fragile {
+  background: rgba(234, 179, 8, 0.18);
+  color: #b45309;
+}
+
+/* ---- Filters ---- */
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.filter-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.field-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+.field-hint {
+  font-size: 12px;
+  color: var(--text);
+}
+.field input,
+.field select {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--bg);
+  color: var(--text-h);
+  font: inherit;
+  font-size: 15px;
+}
+.field input:focus,
+.field select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.field-highlight {
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  border-radius: 10px;
+  padding: 12px;
+  margin: 0 -2px;
+}
+
+.chips-input {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chip-toggle {
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+.chip-toggle:hover {
+  border-color: var(--accent-border);
+}
+.chip-toggle.on {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.inline-radio {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text);
+  margin-top: 8px;
+}
+.inline-radio select {
+  padding: 4px 8px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-h);
+  font: inherit;
+  font-size: 13px;
+}
+
+.filter-toggles {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: var(--text-h);
+  cursor: pointer;
+}
+.switch input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+}
+
+.search-btn {
+  align-self: flex-start;
+  padding: 12px 28px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.search-btn:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+.search-btn:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+/* ---- Results ---- */
+.banner {
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: var(--social-bg);
+  border: 1px solid var(--border);
+  font-size: 15px;
+  margin-bottom: 16px;
+}
+.banner.error {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #dc2626;
+}
+.collector-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.collector {
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+}
+.collector.ok {
+  color: #16a34a;
+}
+.collector.fail {
+  color: #dc2626;
+  background: rgba(239, 68, 68, 0.08);
+}
+.results-summary {
+  font-size: 15px;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+.results-summary strong {
+  color: var(--text-h);
+  font-size: 18px;
+}
+.empty {
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--text);
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+}
+
+/* ---- Per-platform tabs ---- */
+.tab-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+}
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+.tab:hover {
+  border-color: var(--accent-border);
+}
+.tab.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.tab-count {
+  font-size: 12px;
+  padding: 1px 8px;
+  border-radius: 20px;
+  background: var(--social-bg);
+  color: var(--text-h);
+}
+.tab.active .tab-count {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+.tab-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #eab308;
+}
+.tab-spinner,
+.scroll-sentinel .muted::before {
+  /* simple spinner */
+}
+.tab-spinner {
+  width: 11px;
+  height: 11px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.scroll-sentinel {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0 8px;
+  min-height: 24px;
+}
+.muted {
+  color: var(--text);
+  font-size: 13px;
+}
+.load-more {
+  padding: 9px 22px;
+  border: 1px solid var(--accent-border);
+  border-radius: 9px;
+  background: var(--accent-bg);
+  color: var(--accent);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+.load-more:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.job-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.job-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+  background: var(--bg);
+  transition: border-color 0.15s;
+}
+.job-card:hover {
+  border-color: var(--accent-border);
+}
+.job-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+}
+.job-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-h);
+  text-decoration: none;
+}
+.job-title:hover {
+  color: var(--accent);
+}
+.job-company {
+  font-size: 14px;
+  color: var(--text);
+  margin-top: 3px;
+}
+.source-tag {
+  font-size: 12px;
+  color: var(--text);
+  background: var(--social-bg);
+  padding: 3px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.job-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+.chip {
+  font-size: 12.5px;
+  padding: 3px 10px;
+  border-radius: 7px;
+  background: var(--social-bg);
+  color: var(--text-h);
+}
+.chip.remote {
+  background: rgba(34, 197, 94, 0.14);
+  color: #16a34a;
+}
+.chip.salary {
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+.job-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+.tag {
+  font-size: 12px;
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+@media (max-width: 600px) {
+  .filter-row {
+    grid-template-columns: 1fr;
+  }
+  .app-header h1 {
+    font-size: 32px;
+  }
+}
