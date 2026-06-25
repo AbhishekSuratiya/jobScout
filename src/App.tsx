@@ -140,33 +140,37 @@ function App() {
         <p>Search multiple job boards at once, then filter down to the roles that actually match.</p>
       </header>
 
-      <div className="controls">
-        <SourceSelector sources={sources} selected={selected} onToggle={toggleSource} />
-        <FilterPanel filters={filters} onChange={patchFilters} />
-        <button type="button" className="search-btn" onClick={runSearch} disabled={anyLoading}>
-          {anyLoading ? 'Scraping…' : 'Search jobs'}
-        </button>
-      </div>
-
-      <main className="results">
-        {error && <div className="banner error">{error}</div>}
-
-        {searched && (
-          <div className="results-summary">
-            <strong>{totalJobs}</strong> {totalJobs === 1 ? 'job' : 'jobs'} across {order.length}{' '}
-            {order.length === 1 ? 'portal' : 'portals'}
+      <div className="workspace">
+        <aside className="controls-pane">
+          <div className="controls">
+            <SourceSelector sources={sources} selected={selected} onToggle={toggleSource} />
+            <FilterPanel filters={filters} onChange={patchFilters} />
+            <button type="button" className="search-btn" onClick={runSearch} disabled={anyLoading}>
+              {anyLoading ? 'Scraping…' : 'Search jobs'}
+            </button>
           </div>
-        )}
+        </aside>
 
-        <ResultsTabs
-          order={order}
-          sourceMeta={sourceMeta}
-          results={results}
-          activeTab={activeTab}
-          onTabChange={setActiveTab}
-          onLoadMore={loadMore}
-        />
-      </main>
+        <main className="results">
+          {error && <div className="banner error">{error}</div>}
+
+          {searched && (
+            <div className="results-summary">
+              <strong>{totalJobs}</strong> {totalJobs === 1 ? 'job' : 'jobs'} across {order.length}{' '}
+              {order.length === 1 ? 'portal' : 'portals'}
+            </div>
+          )}
+
+          <ResultsTabs
+            order={order}
+            sourceMeta={sourceMeta}
+            results={results}
+            activeTab={activeTab}
+            onTabChange={setActiveTab}
+            onLoadMore={loadMore}
+          />
+        </main>
+      </div>
     </div>
   );
 }

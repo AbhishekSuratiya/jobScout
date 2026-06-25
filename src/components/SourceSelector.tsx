@@ -28,7 +28,6 @@ export function SourceSelector({ sources, selected, onToggle }: Props) {
               title={s.note}
             >
               <span className="source-card-label">{s.label}</span>
-              <span className={`pill ${s.reliability}`}>{s.reliability}</span>
             </button>
           );
         })}
